@@ -8,7 +8,7 @@ function setValidHour() {
     let selectedHour;
 
     while (!validHour) {
-        const welcomeMsgHour = prompt('Bienvenido al restaurante Comilon, indique por favor a qué hora desea reservar mesa en formato hh:mm.');
+        const welcomeMsgHour = prompt('Bienvenido al restaurante Comilon, indique por favor a qué hora desea reservar mesa en formato hh:mm.\nNuestro horario es de:\n- Desayuno: 07:00 a 12:00\n- Comida: 13:00 a 16:00\n- Cena: 19:00 a 23:00\n');
         if (/^\d{2}:\d{2}$/.test(welcomeMsgHour)) {  // verificacion de hh : mm - / / delimitan la expresion regular - ^- para validar desde el primer numero-  \d{2} verifica que sean dos digitos - : - \d{2} verifica que sean dos digitos
             const [h, m] = welcomeMsgHour.split(':').map(Number); // split separa la cadena con : - map(Number) convierte cada parte a un número
 
@@ -30,9 +30,8 @@ function setValidHour() {
                 } else {
                 alert('La cocina está cerrada a la hora seleccionada. Prueba con otra hora.');
                 }
-
-            } else {
-            alert('Formato incorrecto. Por favor, usa el formato hh:mm.');
+            }else {
+                alert('Formato incorrecto. Por favor, usa el formato hh:mm.');
             };
         };  
     };
@@ -69,8 +68,8 @@ function randomMsg() {
     return options[randomOption];
 }
 
-function limpiarTexto(texto) {
-    return texto
+function cleanText(txt) {
+    return txt
         .normalize("NFD") // normaliza el texto para eliminar acentos y caracteres especiales, sin normalize no se eliminan los acentos porque son parte del string (é --> e + ´)
         .replace(/[\u0300-\u036f]/g, "") // expresion regular para eliminar acentos y caracteres especiales 
         .toLowerCase()
@@ -93,11 +92,11 @@ function breakfastMenu() {
             "MENU DESAYUNO:\n- Infusión (1,20€)\n- Colacao (1,80€)\n- Café (1€)\n- Zumo (0,90€)\n\nEscribe el nombre del plato:"
         );
 
-        if (breakfastDrinkOptions[limpiarTexto(breakfastDrinkUserChoice)]) break;
+        if (breakfastDrinkOptions[cleanText(breakfastDrinkUserChoice)]) break;
         alert(`Ops, no disponemos de ${breakfastDrinkUserChoice} ahora mismo, elija otra opción por favor.`);
     }
 
-    alert(`Has elegido: ${breakfastDrinkOptions[limpiarTexto(breakfastDrinkUserChoice)]} ${randomMsg()}`);
+    alert(`Has elegido: ${breakfastDrinkOptions[cleanText(breakfastDrinkUserChoice)]} ${randomMsg()}`);
 
     const breakfastFoodOptions = {
         "tostada": "Tostada (1,50€)",
@@ -114,14 +113,14 @@ function breakfastMenu() {
             "MENU DESAYUNO:\n- Tostada (1,50€)\n- Tortilla (2€)\n- Pepito(1,50€)\n- Bolleria (1,20€)\n-Nada (0€)\n\nEscribe el nombre del plato:"
         );
 
-        if (breakfastFoodOptions[limpiarTexto(breakfastFoodUserChoice)]) break;
+        if (breakfastFoodOptions[cleanText(breakfastFoodUserChoice)]) break;
         alert("Ese plato no existe. Vuelve a intentarlo.");
     }
 
-    if (limpiarTexto(breakfastFoodUserChoice) === "nada") {
+    if (cleanText(breakfastFoodUserChoice) === "nada") {
         alert("Le traeré unicamente la bebida entonces."); 
     }else {
-        alert(`Has elegido: ${breakfastFoodOptions[limpiarTexto(breakfastFoodUserChoice)]} ${randomMsg()}`)
+        alert(`Has elegido: ${breakfastFoodOptions[cleanText(breakfastFoodUserChoice)]} ${randomMsg()}`)
     };
 
     const breakfastExtra = {
@@ -139,14 +138,14 @@ function breakfastMenu() {
             "MENU DESAYUNO:\n- Pan (0,50€)\n- Agua (0,80€)\n- Leche (0,50€)\n- Nesquik (1€)\n-Nada (0€)\n\nEscribe el nombre del plato:"
         );
 
-        if (breakfastExtra[limpiarTexto(breakfastExtraChoice)]) break;
+        if (breakfastExtra[cleanText(breakfastExtraChoice)]) break;
         alert("Ese extra no existe. Vuelve a intentarlo.");
     };
 
-    if (limpiarTexto(breakfastExtraChoice) === "nada") {
+    if (cleanText(breakfastExtraChoice) === "nada") {
         alert("Sin nada entonces."); 
     }else {
-        alert(`Has elegido: ${breakfastExtra[limpiarTexto(breakfastExtraChoice)]} ${randomMsg()}`)
+        alert(`Has elegido: ${breakfastExtra[cleanText(breakfastExtraChoice)]} ${randomMsg()}`)
     };
 
     const price=
@@ -175,10 +174,10 @@ function lunchMenu() {
             "PRIMER PLATO:\n- Marmitako (8€)\n- Ensalada (2€)\n- Sopa (2,50€)\n- Arroz (3€)\n\nEscribe el nombre del plato:"
         );
 
-        if (lunchMenuFirstPlate[limpiarTexto(lunchMenuFirstChoice)]) break;
+        if (lunchMenuFirstPlate[cleanText(lunchMenuFirstChoice)]) break;
         alert(`Ops, no disponemos de ${lunchMenuFirstChoice} ahora mismo, elija otra opción por favor.`);
     }
-    alert(`Has elegido: ${lunchMenuFirstPlate[limpiarTexto(lunchMenuFirstChoice)]} ${randomMsg()}`);
+    alert(`Has elegido: ${lunchMenuFirstPlate[cleanText(lunchMenuFirstChoice)]} ${randomMsg()}`);
 
     const lunchMenuSecondPlate = {
         "bakalao": "Bakalao (7,50€)",
@@ -193,11 +192,11 @@ function lunchMenu() {
             "SEGUNDO PLATO:\n- Bakalao (7,50€)\n- Lubina (6€)\n- Katxopo (8€)\n- Pollo (6€)\n\nEscribe el nombre del plato:"
         );
 
-        if (lunchMenuSecondPlate[limpiarTexto(lunchMenuSecondChoice)]) break;
+        if (lunchMenuSecondPlate[cleanText(lunchMenuSecondChoice)]) break;
         alert(`Ops, no disponemos de ${lunchMenuSecondChoice} ahora mismo, elija otra opción por favor.`);
     };
 
-    alert(`Has elegido: ${lunchMenuSecondPlate[limpiarTexto(lunchMenuSecondChoice)]} ${randomMsg()}`);
+    alert(`Has elegido: ${lunchMenuSecondPlate[cleanText(lunchMenuSecondChoice)]} ${randomMsg()}`);
 
     const lunchMenuDesserts = {
         "tarta": "Tarta (2€)",
@@ -214,15 +213,15 @@ function lunchMenu() {
             "POSTRE:\n- Tarta (2€)\n- Coulant (2,25€)\n- Pantxineta (2,50€)\n- Fruta (1,5€)\n- Yogur (1€)\n\nEscribe el nombre del postre:"
         );
 
-        if (lunchMenuDesserts[limpiarTexto(lunchDessertChoice)]) break;
+        if (lunchMenuDesserts[cleanText(lunchDessertChoice)]) break;
         alert(`Ops, no disponemos de ${lunchDessertChoice} ahora mismo, elija otra opción por favor.`); 
     }; 
 
-    alert(`Has elegido: ${lunchMenuDesserts[limpiarTexto(lunchDessertChoice)]} ${randomMsg()}`);
+    alert(`Has elegido: ${lunchMenuDesserts[cleanText(lunchDessertChoice)]} ${randomMsg()}`);
 
     const lunchExtra = {
         "pan": "Pan (1,20€)",
-        "agua": "Agua (1,€)",
+        "agua": "Agua (1€)",
         "vino": "Vino (2,25€)",
         "cerveza": "Cerveza (1,8€)",
         "nada": "Nada (0€)"
@@ -235,14 +234,14 @@ function lunchMenu() {
             "EXTRAS:\n- Pan (1,20€)\n- Agua (1€)\n- Vino (2,25€)\n- Cerveza (1,8€)\n- Nada(0€)\n\nEscribe el nombre del plato:"
         );
 
-        if (lunchExtra[limpiarTexto(lunchExtraChoice)]) break;
+        if (lunchExtra[cleanText(lunchExtraChoice)]) break;
         alert(`Ops, no disponemos de ${lunchExtraChoice} ahora mismo, elija otra opción por favor.`);     
     };
 
-    if (limpiarTexto(lunchExtraChoice) === "nada") {
+    if (cleanText(lunchExtraChoice) === "nada") {
         alert("Sin extras entonces.");
 
-    } else {alert(`Has elegido: ${lunchExtra[limpiarTexto(lunchExtraChoice)]} ${randomMsg()}`)
+    } else {alert(`Has elegido: ${lunchExtra[cleanText(lunchExtraChoice)]} ${randomMsg()}`)
 };
 
     const price=
@@ -272,11 +271,11 @@ function dinnerMenu() {
             "PRIMER PLATO:\n- Ensalada (3€)\n- Sopa (3,50€)\n- Pure (4€)\n- Crema (3€)\n\nEscribe el nombre del plato:"
         );
 
-        if (dinnerMenuFirstPlate[limpiarTexto(dinnerMenuFirstPlateChoice)]) break;
+        if (dinnerMenuFirstPlate[cleanText(dinnerMenuFirstPlateChoice)]) break;
         alert(`Ops, no disponemos de ${dinnerMenuFirstPlateChoice} ahora mismo, elija otra opción por favor.`);
     };
 
-    alert(`Has elegido: ${dinnerMenuFirstPlate[limpiarTexto(dinnerMenuFirstPlateChoice)]} ${randomMsg()}`);
+    alert(`Has elegido: ${dinnerMenuFirstPlate[cleanText(dinnerMenuFirstPlateChoice)]} ${randomMsg()}`);
 
 
     const dinnerMenuSecondPlate = {
@@ -293,11 +292,11 @@ function dinnerMenu() {
             "SEGUNDO PLATO: \n- Lubina (7€)\n- Merluza (5,50€)\n- Pollo (5€)\n- Costillas (9€)\n\nEscribe el nombre del plato:"
         );
 
-        if (dinnerMenuSecondPlate[limpiarTexto(dinnerMenuSecondPlateChoice)]) break;    
+        if (dinnerMenuSecondPlate[cleanText(dinnerMenuSecondPlateChoice)]) break;    
         alert(`Ops, no disponemos de ${dinnerMenuSecondPlateChoice} ahora mismo, elija otra opción por favor.`);
     };
 
-    alert(`Has elegido: ${dinnerMenuSecondPlate[limpiarTexto(dinnerMenuSecondPlateChoice)]} ${randomMsg()}`);
+    alert(`Has elegido: ${dinnerMenuSecondPlate[cleanText(dinnerMenuSecondPlateChoice)]} ${randomMsg()}`);
 
 
     const dinnerMenuDesserts = {
@@ -315,11 +314,11 @@ function dinnerMenu() {
         dinnerMenuDessertsChoice = prompt(
             "POSTRE:\n- Tarta (2,50€)\n- Coulant (1,50€)\n- Pantxineta (2€)\n- Fruta (1€)\n- Yogur (1,50€)\n\nEscribe el nombre del plato:"
         );
-        if (dinnerMenuDesserts[limpiarTexto(dinnerMenuDessertsChoice)]) break;
+        if (dinnerMenuDesserts[cleanText(dinnerMenuDessertsChoice)]) break;
         alert(`Ops, no disponemos de ${dinnerMenuDessertsChoice} ahora mismo, elija otra opción por favor.`);
     };
 
-    alert(`Has elegido: ${dinnerMenuDesserts[limpiarTexto(dinnerMenuDessertsChoice)]} ${randomMsg()}`);
+    alert(`Has elegido: ${dinnerMenuDesserts[cleanText(dinnerMenuDessertsChoice)]} ${randomMsg()}`);
 
     const dinnerExtra ={
         "pan": "Pan (1€)",
@@ -335,14 +334,14 @@ function dinnerMenu() {
         dinnerExtraChoice = prompt(
             "EXTRAS:\n- Pan (1€)\n- Agua (1,50€)\n- Vino (2,50€)\n- Cerveza (2€)\n- Nada(0€)\n\nEscribe el nombre del plato:"
         );
-        if (dinnerExtra[limpiarTexto(dinnerExtraChoice)]) break;
+        if (dinnerExtra[cleanText(dinnerExtraChoice)]) break;
         alert(`Ops, no disponemos de ${dinnerExtraChoice} ahora mismo, elija otra opción por favor.`);
     };
     
-    if (limpiarTexto(dinnerExtraChoice) === "nada") {
+    if (cleanText(dinnerExtraChoice) === "nada") {
         alert("Sin extras entonces."); 
 
-    } else { alert(`Has elegido: ${dinnerExtra[limpiarTexto(dinnerExtraChoice)]} ${randomMsg()}`)
+    } else { alert(`Has elegido: ${dinnerExtra[cleanText(dinnerExtraChoice)]} ${randomMsg()}`)
 };
 
     const price=
