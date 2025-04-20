@@ -8,7 +8,7 @@ function setValidHour() {
     let selectedHour;
 
     while (!validHour) {
-        const welcomeMsgHour = prompt('Bienvenido al restaurante Comilon, indique por favor a qué hora desea reservar mesa en formato hh:mm.\nNuestro horario es de:\n- Desayuno: 07:00 a 12:00\n- Comida: 13:00 a 16:00\n- Cena: 19:00 a 23:00\n');
+        const welcomeMsgHour = prompt('Bienvenido al restaurante Comilon, indique por favor a qué hora desea reservar mesa en formato hh:mm.\nNuestro horario es de:\n- Desayuno: 07:00 a 12:00\n- Comida: 13:00 a 16:00\n- Cena: 19:00 a 23:00\n\nRecuerde que la cocina cierra a las 23:00.');
         if (/^\d{2}:\d{2}$/.test(welcomeMsgHour)) {  // verificacion de hh : mm - / / delimitan la expresion regular - ^- para validar desde el primer numero-  \d{2} verifica que sean dos digitos - : - \d{2} verifica que sean dos digitos
             const [h, m] = welcomeMsgHour.split(':').map(Number); // split separa la cadena con : - map(Number) convierte cada parte a un número
 
@@ -38,7 +38,7 @@ function setValidHour() {
 };
 
 //TOTAL
-let totalPrice = 0; //
+let totalPrice = 0; 
 
 function choicePrice(strchoice) {
         const match = strchoice.match(/([\d.,]+)€/); // / / delimitan la expresion regular- [ ] - busca un caracter entre los delimitadores - \d busca un digito - . busca el punto - , busca la coma - + uno o mas caracteres - € busca el simbolo de euro] 
