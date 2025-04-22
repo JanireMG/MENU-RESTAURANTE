@@ -155,9 +155,9 @@ function breakfastMenu() {
 
     totalPrice += price;
     alert(`Su pedido contiene: 
-        ${breakfastDrinkUserChoice.toUpperCase()} - ${choicePrice(breakfastDrinkOptions[cleanText(breakfastDrinkUserChoice)])} €
-        ${breakfastFoodUserChoice.toUpperCase()} - ${choicePrice(breakfastFoodOptions[cleanText(breakfastFoodUserChoice)])} €
-        ${breakfastExtraChoice.toUpperCase()} - ${choicePrice(breakfastExtra[cleanText(breakfastExtraChoice)])} €
+        ${breakfastDrinkUserChoice.toUpperCase()}- ${choicePrice(breakfastDrinkOptions[cleanText(breakfastDrinkUserChoice)])} €
+        ${breakfastFoodUserChoice.toUpperCase()}- ${choicePrice(breakfastFoodOptions[cleanText(breakfastFoodUserChoice)])} €
+        ${breakfastExtraChoice.toUpperCase()}- ${choicePrice(breakfastExtra[cleanText(breakfastExtraChoice)])} €
 
         El total de su pedido es de: ${totalPrice} €`);
 }
@@ -257,10 +257,10 @@ function lunchMenu() {
 
     totalPrice += price;
     alert(`Su pedido contiene:
-        ${lunchMenuFirstChoice.toUpperCase()} - ${choicePrice(lunchMenuFirstPlate[cleanText(lunchMenuFirstChoice)])} €
-        ${lunchMenuSecondChoice.toUpperCase()} - ${choicePrice(lunchMenuSecondPlate[cleanText(lunchMenuSecondChoice)])} €
-        ${lunchDessertChoice.toUpperCase()} - ${choicePrice(lunchMenuDesserts[cleanText(lunchDessertChoice)])} €
-        ${lunchExtraChoice.toUpperCase()} - ${choicePrice(lunchExtra[cleanText(lunchExtraChoice)])} €
+        ${lunchMenuFirstChoice.toUpperCase()}- ${choicePrice(lunchMenuFirstPlate[cleanText(lunchMenuFirstChoice)])} €
+        ${lunchMenuSecondChoice.toUpperCase()}- ${choicePrice(lunchMenuSecondPlate[cleanText(lunchMenuSecondChoice)])} €
+        ${lunchDessertChoice.toUpperCase()}- ${choicePrice(lunchMenuDesserts[cleanText(lunchDessertChoice)])} €
+        ${lunchExtraChoice.toUpperCase()}- ${choicePrice(lunchExtra[cleanText(lunchExtraChoice)])} €
 
         El total de su pedido es de: ${totalPrice} €`); 
 }   
@@ -363,10 +363,10 @@ function dinnerMenu() {
 
         totalPrice += price;
         alert(`Su pedido contiene:
-            ${dinnerMenuFirstPlateChoice.toUpperCase()} - ${choicePrice(dinnerMenuFirstPlate[cleanText(dinnerMenuFirstPlateChoice)])} €
-            ${dinnerMenuSecondPlateChoice.toUpperCase()} - ${choicePrice(dinnerMenuSecondPlate[cleanText(dinnerMenuSecondPlateChoice)])} €
-            ${dinnerMenuDessertsChoice.toUpperCase()} - ${choicePrice(dinnerMenuDesserts[cleanText(dinnerMenuDessertsChoice)])} €
-            ${dinnerExtraChoice.toUpperCase()} - ${choicePrice(dinnerExtra[cleanText(dinnerExtraChoice)])} €
+            ${dinnerMenuFirstPlateChoice.toUpperCase()}- ${choicePrice(dinnerMenuFirstPlate[cleanText(dinnerMenuFirstPlateChoice)])} €
+            ${dinnerMenuSecondPlateChoice.toUpperCase()}- ${choicePrice(dinnerMenuSecondPlate[cleanText(dinnerMenuSecondPlateChoice)])} €
+            ${dinnerMenuDessertsChoice.toUpperCase()}- ${choicePrice(dinnerMenuDesserts[cleanText(dinnerMenuDessertsChoice)])} €
+            ${dinnerExtraChoice.toUpperCase()}- ${choicePrice(dinnerExtra[cleanText(dinnerExtraChoice)])} €
             
             El total de su pedido es de: ${totalPrice} €`);
               
