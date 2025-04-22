@@ -242,7 +242,7 @@ function lunchMenu() {
         alert("Sin extras entonces.");
 
     } else {alert(`Has elegido: ${lunchExtra[cleanText(lunchExtraChoice)]} ${randomMsg()}`)
-};
+    };
 
     const price=
     choicePrice(lunchMenuFirstPlate[lunchMenuFirstChoice]) +
@@ -342,7 +342,7 @@ function dinnerMenu() {
         alert("Sin extras entonces."); 
 
     } else { alert(`Has elegido: ${dinnerExtra[cleanText(dinnerExtraChoice)]} ${randomMsg()}`)
-};
+    };
 
     const price=
         choicePrice(dinnerMenuFirstPlate[dinnerMenuFirstPlateChoice]) +
